@@ -47,6 +47,12 @@ with routers as (
          ('ethereum', 'OKX DEX', '', 'Router', '0x3b3ae790df4f312e745d270119c6052904fb6790'),
          ('ethereum', 'Stargate', 'Router', 'Router', '0x8731d54e9d02c286767d56ac03e8037c07e01e98'),
          ('ethereum', 'Openocean', 'OpenOceanExchangeProxy', 'Aggregator', '0x6352a56caadc4f1e25cd6c75970fa768a3304e64'),
+          ('ethereum', 'Kyber', 'MetaAggregationRouterV2', 'Aggregator', '0x6131b5fae19ea4f9d964eac0408e4408b66337b5'), --2023-05-26
+         ('ethereum', 'Swftswap', 'SwftSwap', 'Router', '0x92e929d8b2c8430bcaf4cd87654789578bb2b786'), --2023-05-26
+         ('ethereum', 'AnySwap', 'AnyswapV6Router', 'Router', '0x7782046601e7b9b05ca55a3899780ce6ee6b8b2b'), --2023-05-26
+         ('ethereum', 'Curvefi', 'swap_router', 'Router', '0x99a58482bd75cbab83b27ec03ca68ff489b5788f'), --2023-05-26
+         ('ethereum', 'Saita', 'SaitaSwapRouter', 'Router', '0x0c17e776cd218252adfca8d4e761d3fe757e9778'), --2023-05-26
+         ('ethereum', 'PancakeSwap', 'SmartRouter', 'Router', '0x13f4ea83d0bd40e75c8222255bc855a974568dd4'), --2023-05-26
          ('bnb', 'Slingshot Finance', 'Swap', 'Aggregator', '0x224b239b8bb896f125bd77eb334e302a318d9e33'),
          ('bnb', 'ZeroEx', 'Exchange', 'Aggregator', '0x3f93c3d9304a70c9104642ab8cd37b1e2a7c203a'),
          ('bnb', 'ZeroEx', 'ExchangeProxy', 'Aggregator', '0xdef1c0ded9bec7f1a1670819833240f027b25eff'),
@@ -57,19 +63,20 @@ with routers as (
          ('bnb', 'PancakeSwap', 'PancakeSwapSmartRouter', 'Router', '0x2f22e47ca7c5e07f77785f616ceee80c5e84127c'),
          ('bnb', 'SushiSwap', 'SushiXSwap', 'Router', '0x7a4af156379f512de147ed3b96393047226d923f'),
          ('bnb', 'MetaMask', '', 'Aggregator of Aggregators', '0x1a1ec25dc08e98e5e93f1104b5e5cdd298707d31'),
-         ('bnb', 'FstSwap', '', 'Router', '0xb3ca4d73b1e0ea2c53b42173388cc01e1c226f40'),
+         ('bnb', 'Fstswap', '', 'Router', '0xb3ca4d73b1e0ea2c53b42173388cc01e1c226f40'),
+         ('bnb', '1inch', 'AggregationRouterV2', 'Aggregator', '0x111111254bf8547e7183e4bbfc36199f3cedf4a1'),
          ('bnb', '1inch', 'AggregationRouterV3', 'Aggregator', '0x11111112542d85b3ef69ae05771c2dccff4faa26'),
-         ('bnb', '1inch', 'AggregationRouterV5', 'Aggregator', '0x1111111254eeb25477b68fb85ed929f73a960582'),
          ('bnb', '1inch', 'AggregationRouterV4', 'Aggregator', '0x1111111254fb6c44bac0bed2854e76f90643097d'),
+         ('bnb', '1inch', 'AggregationRouterV5', 'Aggregator', '0x1111111254eeb25477b68fb85ed929f73a960582'),
          ('bnb', 'BiSwap', '', 'Router', '0x3a6d8ca21d1cf76f653a67577fa0d27453350dd8'),
-         ('bnb', 'TransitSwap', 'XswapProxyV3', '#N/A', '0x638f32fe09baec1fdc54f962e3e8e5f2b286aa70'),
-         ('bnb', 'ApeSwap', '', 'Router', '0xcf0febd3f17cef5b47b0cd257acf6025c5bff3b7'),
+         ('bnb', 'TransitSwap', 'XswapProxyV3', 'Aggregator', '0x638f32fe09baec1fdc54f962e3e8e5f2b286aa70'),
+         ('bnb', 'Apeswap', '', 'Router', '0xcf0febd3f17cef5b47b0cd257acf6025c5bff3b7'),
          ('bnb', 'Bogged Finance', '', 'Aggregator', '0xb099ed146fad4d0daa31e3810591fc0554af62bb'),
          ('bnb', 'NomiSwap', '', 'Router', '0xd654953d746f0b114d1f85332dc43446ac79413d'),
          ('bnb', 'SafeMoon', '', 'Router', '0x37da632c6436137bd4d0ca30c98d3c615974120b'),
          ('bnb', 'Cone', 'ConeRouter01', 'Router', '0xbf1fc29668e5f5eaa819948599c9ac1b1e03e75f'),
          ('bnb', 'BabySwap', '', 'Router', '0x8317c460c22a9958c27b4b6403b98d2ef4e2ad32'),
-         ('bnb', 'DODO', 'DODORouteProxy', 'Router', '0x6b3d817814eabc984d51896b1015c0b89e9737ca'),
+         ('bnb', 'DODO', 'DODORouteProxy', 'Aggregator', '0x6b3d817814eabc984d51896b1015c0b89e9737ca'),
          ('bnb', 'Mdex', 'MdexRouter', 'Router', '0x62c1a0d92b09d0912f7bb9c96c5ecdc7f2b87059'),
          ('bnb', 'Mdex', 'MdexRouter', 'Router', '0x7dae51bd3e3376b8c7c4900e9107f12be3af1ba8'),
          ('bnb', 'Wombat', 'WombatRouter', 'Router', '0x19609b03c976cca288fbdae5c21d4290e9a4add7'),
@@ -77,14 +84,31 @@ with routers as (
          ('bnb', 'BitKeep', '', 'Aggregator', '0x6f5ac65ca70f2a44d73c8f711cb2bdf425d9f304'),
          ('bnb', 'TransitSwap', 'TransitSwapRouterV4', 'Aggregator', '0xb45a2dda996c32e93b8c47098e90ed0e7ab18e39'),
          ('bnb', 'Openocean', 'openocean_v2', 'Aggregator', '0x6352a56caadc4f1e25cd6c75970fa768a3304e64'),
-         ('polygon', '1inch', 'OneInchExchange', 'Aggregator', '0x11111112542d85b3ef69ae05771c2dccff4faa26'),
+         ('bnb', 'PancakeSwap', 'SmartRouter', 'Router', '0x13f4ea83d0bd40e75c8222255bc855a974568dd4'), -- 2023-05-29
+         --('bnb', 'Stargate', 'Router', 'Aggregator', '0x4a364f8c717caad9a442737eb7b8a55cc6cf18d8'), -- 2023-05-29
+         ('bnb', 'Kyber', 'MetaAggregationRouterV2', 'Aggregator', '0x6131b5fae19ea4f9d964eac0408e4408b66337b5'), -- 2023-05-29
+         ('bnb', 'Swftswap', 'SwftSwap', 'Router', '0x1ed5685f345b2fa564ea4a670de1fde39e484751'), -- 2023-05-29
+         ('bnb', 'Uniswap', 'UniversalRouter', 'Router', '0x5dc88340e1c5c6366864ee415d6034cadd1a9897'), -- 2023-05-29
+         ('bnb', 'LiFi', 'LiFiDiamond_v2', 'Aggregator of Aggregators', '0x1231deb6f5749ef6ce6943a275a1d3e7486f4eae'), -- 2023-05-29
+         ('bnb', 'Fstswap', 'FstswapRouter02', 'Router', '0x1b6c9c20693afde803b27f8782156c0f892abc2d'), -- 2023-05-29
+         ('bnb', 'Trader Joe', 'LBRouter', 'Router', '0xb4315e873dbcf96ffd0acd8ea43f689d8c20fb30'), -- 2023-05-29
+         ('bnb', 'W3swap', 'W3swapRouterV2', 'Router', '0xf29ace1fe5f36389d0dde450a0195a30c3770245'), -- 2023-05-29
+         ('bnb', 'DODO', 'DODOFeeRouteProxy', 'Aggregator', '0x0656fd85364d03b103ceeda192fb2d3906a6ac15'), -- 2023-05-29
+         ('bnb', 'SushiSwap', 'UniswapV2Router02', 'Router', '0x1b02da8cb0d097eb8d57a175b88c7d8b47997506'), -- 2023-05-29
+         ('bnb', 'Izumi', 'Swap', 'Router', '0xbd3bd95529e0784ad973fd14928eedf3678cfad8'), -- 2023-05-29
+         ('bnb', 'AnySwap', 'AnyswapV6Router', 'Router', '0xe1d592c3322f1f714ca11f05b6bc0efef1907859'), -- 2023-05-29
+         ('bnb', 'DODO', 'DODOFeeRouteProxy', 'Aggregator of Aggregators', '0xa8b034301bb5dd3610db585def3e7c0d52f2319f'), -- 2023-05-29
+         ('bnb', 'Firebird', 'FireBirdRouter', 'Aggregator', '0x92e4f29be975c1b1eb72e77de24dccf11432a5bd'), -- 2023-05-29
+         ('bnb', 'AnySwap', 'AnyswapV3Router', 'Router', '0xf9736ec3926703e85c843fc972bd89a7f8e827c0'), -- 2023-05-29
+         
+         ('polygon', '1inch', 'AggregationRouterV3', 'Aggregator', '0x11111112542d85b3ef69ae05771c2dccff4faa26'),
          ('polygon', '1inch', 'AggregationRouterV4', 'Aggregator', '0x1111111254fb6c44bac0bed2854e76f90643097d'),
-         ('polygon', '1inch', '', 'Aggregator', '0x1111111254eeb25477b68fb85ed929f73a960582'),
+         ('polygon', '1inch', 'AggregationRouterV5', 'Aggregator', '0x1111111254eeb25477b68fb85ed929f73a960582'),
          ('polygon', 'MetaMask', '', 'Aggregator of Aggregators', '0x1a1ec25dc08e98e5e93f1104b5e5cdd298707d31'),
          ('polygon', 'QuickSwap', 'UniswapV2Router02', 'Router', '0xa5e0829caced8ffdd4de3c43696c57f7d7a678ff'),
          ('polygon', 'QuickSwap', 'UniswapV2Pair', 'Router', '0x2cf7252e74036d1da831d11089d326296e64a728'),
          ('polygon', 'Uniswap', 'SwapRouter02', 'Router', '0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45'),
-         ('polygon', 'ParaSwap', 'AugustusSwapperV4', '#N/A', '0x90249ed4d69d70e709ffcd8bee2c5a566f65dade'),
+         ('polygon', 'ParaSwap', 'AugustusSwapperV4', 'Aggregator', '0x90249ed4d69d70e709ffcd8bee2c5a566f65dade'),
          ('polygon', 'ParaSwap', 'AugustusSwapperV5', 'Aggregator', '0xdef171fe48cf0115b1d80b88dc8eab59176fee57'),
          ('polygon', 'Slingshot Finance', 'slingshot_trading_contract', 'Aggregator', '0xf2e4209afa4c3c9eaa3fb8e12eed25d8f328171c'),
          ('polygon', 'Kyber', 'AggregationRouterV2', 'Aggregator', '0xdf1a1b60f2d438842916c0adc43748768353ec25'),
@@ -92,7 +116,7 @@ with routers as (
          ('polygon', 'ZeroEx', 'ExchangeProxy', 'Aggregator', '0xdef1c0ded9bec7f1a1670819833240f027b25eff'),
          ('polygon', 'TransitSwap', '', 'Aggregator', '0x8b48715c5d6d1645663a4c460ea85ce846b8580e'),
          ('polygon', 'Odos', '', 'Aggregator', '0xa32ee1c40594249eb3183c10792bcf573d4da47c'),
-         ('polygon', 'BitKeep', '', '#N/A', '0xf6463845b0b9d9d33d8e2bcb6c628bc5cb1ad133'),
+         ('polygon', 'Bitkeep', '', 'Aggregator', '0xf6463845b0b9d9d33d8e2bcb6c628bc5cb1ad133'),
          ('polygon', 'Fraxswap', 'FraxswapRouter', 'Router', '0x9bc2152fd37b196c0ff3c16f5533767c9a983971'),
          ('polygon', 'Socket', 'Registry', 'Aggregator of Aggregators', '0xc30141b657f4216252dc59af2e7cdb9d8792e1b0'),
          ('polygon', 'SushiSwap', 'UniswapV2Router02', 'Router', '0x1b02da8cb0d097eb8d57a175b88c7d8b47997506'),
@@ -103,7 +127,22 @@ with routers as (
          ('polygon', 'DODO', 'DODORouteProxy', 'Aggregator', '0x2fa4334cfd7c56a0e7ca02bd81455205fcbdc5e9'),
          ('polygon', 'LiFi', 'LiFiDiamond_v2', 'Aggregator of Aggregators', '0x1231deb6f5749ef6ce6943a275a1d3e7486f4eae'),
          ('polygon', 'Bitkeep', '', 'Aggregator', '0xf5bfcbda96de6a55a3a80af5175a1cbb088d5338'),
-         ('optimism', 'Slingshot Finance', 'Swap', '#N/A', '0x00c0184c0b5d42fba6b7ca914b31239b419ab80b'),
+         --('polygon', 'Stargate', 'Router', 'Aggregator', '0x45a01e4e04f14f7a4a6702c74187c5f6222033cd'), -- 2023-05-29
+         ('polygon', 'Uniswap', 'SwapRouter', 'Router', '0xe592427a0aece92de3edee1f18e0157c05861564'), -- 2023-05-29
+         ('polygon', 'QuickSwap', 'SwapRouter', 'Router', '0xf5b509bb0909a69b1c207e495f687a596c168e12'), -- 2023-05-29
+         ('polygon', 'Uniswap', 'Uniswap_Universal_Router', 'Router', '0x4c60051384bd2d3c01bfc845cf5f4b44bcbe9de5'), -- 2023-05-29
+         ('polygon', 'Meshswap', 'Router', 'Router', '0x10f4a785f458bc144e3706575924889954946639'), -- 2023-05-29
+         ('polygon', 'Vyper', 'Vyper_contract', 'Router', '0x1d8b86e3d88cdb2d34688e87e72f388cb541b7c8'), -- 2023-05-29
+         ('polygon', 'Apeswap', 'ApeRouter', 'Router', '0xc0788a3ad43d79aa53b09c2eacc313a787d1d607'), -- 2023-05-29
+         ('polygon', 'Connext', 'ConnextDiamond', 'Router', '0x11984dc4465481512eb5b777e44061c158cf2259'), -- 2023-05-29
+         ('polygon', 'Kyber', 'MetaAggregationRouterV2', 'Aggregator', '0x6131b5fae19ea4f9d964eac0408e4408b66337b5'), -- 2023-05-29
+         ('polygon', 'TransitSwap', 'TransitSwapRouterV4', 'Aggregator', '0xb45a2dda996c32e93b8c47098e90ed0e7ab18e39'), -- 2023-05-29
+         ('polygon', 'Dfyn', 'UniswapV2Router02', 'Router', '0xa102072a4c07f06ec3b4900fdc4c7b80b6c57429'), -- 2023-05-29
+         ('polygon', 'DODO', 'DODOFeeRouteProxy', 'Aggregator of Aggregators', '0x39e3e49c99834c9573c9fc7ff5a4b226cd7b0e63'), -- 2023-05-29
+         ('polygon', 'Firebird', 'FireBirdRouter', 'Aggregator', '0xb31d1b1ea48ce4bf10ed697d44b747287e785ad4'), -- 2023-05-29
+         ('polygon', 'Dzap', 'DZapAggregator', 'Aggregator', '0x3af3cc4930ef88f4afe0b695ac95c230e1a108ec'), -- 2023-05-29
+         
+         ('optimism', 'Slingshot Finance', 'Swap', 'Aggregator', '0x00c0184c0b5d42fba6b7ca914b31239b419ab80b'),
          ('optimism', 'SushiSwap', 'SushiXSwap', 'Router', '0x8b396ddf906d552b2f98a8e7d743dd58cd0d920f'),
          ('optimism', 'Uniswap', 'SwapRouter', 'Router', '0xe592427a0aece92de3edee1f18e0157c05861564'),
          ('optimism', 'Uniswap', 'SwapRouter02', 'Router', '0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45'),
@@ -112,20 +151,27 @@ with routers as (
          ('optimism', '1inch', 'AggregationRouterV5', 'Aggregator', '0x1111111254eeb25477b68fb85ed929f73a960582'),
          ('optimism', 'ZeroEx', 'ExchangeProxy', 'Aggregator', '0xdef1abe32c034e558cdd535791643c58a13acc10'),
          ('optimism', 'Clipper', 'ClipperPackedVerifiedExchange', 'Router', '0x5130f6ce257b8f9bf7fac0a0b519bd588120ed40'),
-         ('optimism', 'Stargate', 'Router', 'Router', '0xb0d502e938ed5f4df2e681fe6e419ff29631d62b'),
+         --('optimism', 'Stargate', 'Router', 'Aggregator', '0xb0d502e938ed5f4df2e681fe6e419ff29631d62b'),
          ('optimism', 'Velodrome', 'Router', 'Router', '0xa132dab612db5cb9fc9ac426a0cc215a3423f9c9'),
          ('optimism', 'Velodrome', 'Router', 'Router', '0x9c12939390052919af3155f41bf4160fd3666a6f'),
          ('optimism', 'Socket', 'Registry', 'Aggregator of Aggregators', '0xc30141b657f4216252dc59af2e7cdb9d8792e1b0'),
          ('optimism', 'Odos', 'OdosRouter', 'Aggregator', '0x69dd38645f7457be13571a847ffd905f9acbaf6d'),
-         ('optimism', 'WooFi', 'WooRouter', 'Router', '0xeaf1ac8e89ea0ae13e0f03634a4ff23502527024'),
+         ('optimism', 'WooFi', 'WooRouter', 'Aggregator', '0xeaf1ac8e89ea0ae13e0f03634a4ff23502527024'),
          ('optimism', 'LiFi', 'LiFiDiamond_v2', 'Aggregator of Aggregators', '0x1231deb6f5749ef6ce6943a275a1d3e7486f4eae'),
          ('optimism', 'Via router', 'ViaRouter', 'Aggregator of Aggregators', '0x777777773fdd8b28bb03377d10fcea75ad9768da'),
+         ('optimism', 'Perp', 'ClearingHouse', 'Router', '0x82ac2ce43e33683c58be4cdc40975e73aa50f459'), -- 2023-05-29
+         ('optimism', 'Uniswap', 'UniversalRouter', 'Router', '0xb555edf5dcf85f42ceef1f3630a52a108e55a654'), -- 2023-05-29
+         ('optimism', 'ParaSwap', 'AugustusSwapper', 'Aggregator', '0xdef171fe48cf0115b1d80b88dc8eab59176fee57'), -- 2023-05-29
+         ('optimism', 'SushiSwap', 'RouteProcessor3', 'Router', '0x4c5d5234f232bd2d76b96aa33f5ae4fcf0e4bfab'), -- 2023-05-29
+         ('optimism', 'Firebird', 'FireBirdRouter', 'Aggregator', '0x0c6134abc08a1eafc3e2dc9a5ad023bb08da86c3'), -- 2023-05-29
+         ('optimism', 'Openocean', 'OpenOceanExchangeProxy', 'Aggregator', '0x6352a56caadc4f1e25cd6c75970fa768a3304e64'), -- 2023-05-29
+         
          ('arbitrum', 'Uniswap', 'SwapRouter02', 'Router', '0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45'),
          ('arbitrum', 'SushiSwap', 'UniswapV2Router02', 'Router', '0x1b02da8cb0d097eb8d57a175b88c7d8b47997506'),
-         ('arbitrum', 'Slingshot Finance', 'Swap', '#N/A', '0xe8c97bf6d084880de38aec1a56d97ed9fdfa0c9b'),
+         ('arbitrum', 'Slingshot Finance', 'Swap', 'Aggregator', '0xe8c97bf6d084880de38aec1a56d97ed9fdfa0c9b'),
          ('arbitrum', 'GMX', 'Router', 'Router', '0xabbc5f99639c9b6bcb58544ddf04efa6802f4064'),
-         ('arbitrum', 'GMX', 'OrderBookReader', '#N/A', '0xa27c20a7cf0e1c68c0460706bb674f98f362bc21'),
-         ('arbitrum', 'GMX', 'PositionRouter', '#N/A', '0x3d6ba331e3d9702c5e8a8d254e5d8a285f223aba'),
+         ('arbitrum', 'GMX', 'OrderBookReader', 'Router', '0xa27c20a7cf0e1c68c0460706bb674f98f362bc21'),
+         ('arbitrum', 'GMX', 'PositionRouter', 'Router', '0x3d6ba331e3d9702c5e8a8d254e5d8a285f223aba'),
          ('arbitrum', '1inch', 'AggregationRouterV3', 'Aggregator', '0x11111112542d85b3ef69ae05771c2dccff4faa26'),
          ('arbitrum', '1inch', 'AggregationRouterV4', 'Aggregator', '0x1111111254fb6c44bac0bed2854e76f90643097d'),
          ('arbitrum', 'Stargate', 'Router', 'Router', '0x53bf833a5d6c4dda888f69c22c88c9f356a41614'),
@@ -138,6 +184,20 @@ with routers as (
          ('arbitrum', 'Slingshot Finance', '', 'Aggregator', '0x5543550d65813c1fa76242227cbba0a28a297771'),
          ('arbitrum', 'Via router', 'ViaRouter', 'Aggregator of Aggregators', '0x777777773fdd8b28bb03377d10fcea75ad9768da'),
          ('arbitrum', 'LiFi', 'LiFiDiamond_v2', 'Aggregator of Aggregators', '0x1231deb6f5749ef6ce6943a275a1d3e7486f4eae'),
+         ('arbitrum', 'Camelot', 'CamelotRouter', 'Router', '0xc873fecbd354f5a56e00e710b90ef4201db2448d'), -- 2023-05-29
+         ('arbitrum', 'Uniswap', 'UniversalRouter', 'Router', '0x4c60051384bd2d3c01bfc845cf5f4b44bcbe9de5'), -- 2023-05-29
+         ('arbitrum', 'Trader Joe', 'LBRouter', 'Router', '0xb4315e873dbcf96ffd0acd8ea43f689d8c20fb30'), -- 2023-05-29
+         ('arbitrum', 'TransitSwap', 'TransitSwapRouterV4', 'Aggregator', '0xb45a2dda996c32e93b8c47098e90ed0e7ab18e39'), -- 2023-05-29
+         ('arbitrum', 'Ramses', 'Router', 'Router', '0xaaa87963efeb6f7e0a2711f397663105acb1805e'), -- 2023-05-29
+         ('arbitrum', 'Connext', 'ConnextDiamond', 'Router', '0xee9dec2712cce65174b561151701bf54b99c24c8'), -- 2023-05-29
+         ('arbitrum', 'Kyber', 'MetaAggregationRouterV2', 'Aggregator', '0x6131b5fae19ea4f9d964eac0408e4408b66337b5'), -- 2023-05-29
+         ('arbitrum', 'ParaSwap', 'AugustusSwapper', 'Aggregator', '0xdef171fe48cf0115b1d80b88dc8eab59176fee57'), -- 2023-05-29
+         ('arbitrum', 'Arbswap', 'ArbswapSmartRouter', 'Router', '0x6947a425453d04305520e612f0cb2952e4d07d62'), -- 2023-05-29
+         ('arbitrum', 'Swaprum', 'SwaprumV2Router02', 'Router', '0x1342a24347532de79372283b3a29c63c31dd7711'), -- 2023-05-29
+         ('arbitrum', 'Solidlizard', 'router', 'Router', '0xf26515d5482e2c2fd237149bf6a653da4794b3d0'), -- 2023-05-29
+         ('arbitrum', 'DODO', 'DODOFeeRouteProxy', 'Aggregator', '0xe05dd51e4eb5636f4f0e8e7fbe82ea31a2ecef16'), -- 2023-05-29
+         ('arbitrum', 'AnySwap', 'AnyswapV3Router', 'Router', '0x0cae51e1032e8461f4806e26332c030e34de3adb'), -- 2023-05-29
+         
          ('avalanche_c', 'Trader Joe', 'JoeRouter02', 'Router', '0x60ae616a2155ee3d9a68541ba4544862310933d4'),
          ('avalanche_c', 'Trader Joe', 'SwapLogic', 'Router', '0x079c68167f85cb06ed550149cce250e06dc3c52d'),
          ('avalanche_c', 'Trader Joe', 'JoePair', 'Router', '0xed8cbd9f0ce3c6986b22002f03c6475ceb7a6256'),
@@ -154,6 +214,15 @@ with routers as (
          ('avalanche_c', 'GMX', 'Router', 'Router', '0x5f719c2f1095f7b9fc68a68e35b51194f4b6abe8'),
          ('avalanche_c', 'WooFi', 'WooCrossChainRouter', 'Router', '0xdf37f7a85d4563f39a78494568824b4df8669b7a'),
          ('avalanche_c', 'WooFi', 'WooRouterV2', 'Router', '0x5aa6a4e96a9129562e2fc06660d07feddaaf7854'),
+         --('avalanche_c', 'Stargate', 'Router', 'Aggregator', '0x45a01e4e04f14f7a4a6702c74187c5f6222033cd'), -- 2023-05-29
+         ('avalanche_c', 'Trader Joe', 'LBRouter', 'Router', '0xb4315e873dbcf96ffd0acd8ea43f689d8c20fb30'), -- 2023-05-29
+         ('avalanche_c', 'ParaSwap', 'AugustusSwapperV5', 'Aggregator', '0xdef171fe48cf0115b1d80b88dc8eab59176fee57'), -- 2023-05-29
+         ('avalanche_c', 'LiFi', 'LiFiDiamond_v2', 'Aggregator of Aggregators', '0x1231deb6f5749ef6ce6943a275a1d3e7486f4eae'), -- 2023-05-29
+         ('avalanche_c', 'Openocean', 'OpenOceanExchangeProxy, OpenOceanExchange', 'Aggregator', '0x6352a56caadc4f1e25cd6c75970fa768a3304e64'), -- 2023-05-29
+         ('avalanche_c', 'Yield', 'YakRouter', 'Aggregator', '0xc4729e56b831d74bbc18797e0e17a295fa77488c'), -- 2023-05-29
+         ('avalanche_c', 'Kyber', 'MetaAggregationRouterV2', 'Aggregator', '0x6131b5fae19ea4f9d964eac0408e4408b66337b5'), -- 2023-05-29
+         ('avalanche_c', 'Solisnek', 'Router', 'Router', '0xeeee17b45e4d127cfaaad14e2710489523adb4d8'), -- 2023-05-29
+         
          ('gnosis', '1inch', 'AggregationRouterV4', 'Aggregator', '0x1111111254fb6c44bac0bed2854e76f90643097d'),
          ('gnosis', '1inch', 'AggregationRouterV5', 'Aggregator', '0x1111111254eeb25477b68fb85ed929f73a960582'),
          ('gnosis', 'HoneySwap', 'UniswapV2Router02', 'Router', '0x1c232f01118cb8b424793ae03f870aa7d0ac7f77'),
@@ -163,18 +232,25 @@ with routers as (
          ('gnosis', 'Swapr', 'DXswapRouter', 'Router', '0xe43e60736b1cb4a75ad25240e2f9a62bff65c0c0'),
          ('gnosis', 'Baoswap', 'UniswapV2Router02', 'Router', '0x6093aebac87d62b1a5a4ceec91204e35020e38be'),
          ('gnosis', 'Socket', 'Registry', 'Aggregator of Aggregators', '0xc30141b657f4216252dc59af2e7cdb9d8792e1b0'),
-         ('gnosis', 'LiFi', 'LiFiDiamond_v2', 'Aggregator', '0x1231deb6f5749ef6ce6943a275a1d3e7486f4eae'),
+         ('gnosis', 'LiFi', 'LiFiDiamond_v2', 'Aggregator of Aggregators', '0x1231deb6f5749ef6ce6943a275a1d3e7486f4eae'),
          ('fantom', '1inch', 'AggregationRouterV4', 'Aggregator', '0x1111111254fb6c44bac0bed2854e76f90643097d'),
          ('fantom', '1inch', 'AggregationRouterV5', 'Aggregator', '0x1111111254eeb25477b68fb85ed929f73a960582'),
          ('fantom', 'ZeroEx', '0x: Exchange Proxy', 'Aggregator', '0xdef189deaef76e379df891899eb5a00a94cbc250'),
-         ('fantom', 'Paraswap', 'Paraswap', 'Aggregator', '0xdef171fe48cf0115b1d80b88dc8eab59176fee57'),
+         ('fantom', 'ParaSwap', 'Paraswap', 'Aggregator', '0xdef171fe48cf0115b1d80b88dc8eab59176fee57'),
          ('fantom', 'Kyber', 'KyberSwap: Meta Aggregation Router', 'Aggregator', '0x617dee16b86534a5d792a4d7a62fb491b544111e'),
          ('fantom', 'Kyber', 'Kyber Swap: Aggregation Router 2', 'Aggregator', '0xdf1a1b60f2d438842916c0adc43748768353ec25'),
          ('fantom', 'Kyber', 'Kyber Swap: Aggregation Router 3', 'Aggregator', '0x00555513acf282b42882420e5e5ba87b44d8fa6e'),
          ('fantom', 'Kyber', 'Kyber: Aggregation Router', 'Aggregator', '0x1fc3607fa67b58deddb0faf7a116f417a20c551c'),
          ('fantom', 'Firebird', 'Firebird', 'Aggregator', '0xe0c38b2a8d09aad53f1c67734b9a95e43d5981c0'),
-         ('fantom', 'OpenOcean', 'OpenOceanExchange.V2', 'Aggregator', '0x6352a56caadc4f1e25cd6c75970fa768a3304e64'),
-         ('fantom', 'BogSwap', 'BogSwap', 'Aggregator', '0xb099ed146fad4d0daa31e3810591fc0554af62bb')
+         ('fantom', 'Openocean', 'OpenOceanExchange.V2', 'Aggregator', '0x6352a56caadc4f1e25cd6c75970fa768a3304e64'),
+         ('fantom', 'Bogged Finance', 'BogSwap', 'Aggregator', '0xb099ed146fad4d0daa31e3810591fc0554af62bb'),
+         ('fantom', 'Spookyswap', 'UniswapV2Router02', 'Router', '0xf491e7b69e4244ad4002bc14e878a34207e38c29'), -- 2023-05-29
+         ('fantom', 'Spookyswap', 'LiquidityBrewer', 'Router', '0x31f63a33141ffee63d4b26755430a390acdd8a4d'), -- 2023-05-29
+         ('fantom', 'Spiritswap', 'Router', 'Router', '0x16327e3fbdaca3bcf7e38f5af2599d2ddc33ae52'), -- 2023-05-29
+         ('fantom', 'Wigoswap', 'Router', 'Router', '0x5023882f4d1ec10544fcb2066abe9c1645e95aa0'), -- 2023-05-29
+         ('fantom', 'SushiSwap', 'SushiswapRouter', 'Router', '0x1b02da8cb0d097eb8d57a175b88c7d8b47997506'), -- 2023-05-29
+         ('fantom', 'LiFi', 'LiFiDiamond_v2', 'Aggregator of Aggregators', '0x1231deb6f5749ef6ce6943a275a1d3e7486f4eae'), -- 2023-05-29
+         ('fantom', 'Kyber', 'MetaAggregationRouterV2', 'Aggregator', '0x6131b5fae19ea4f9d964eac0408e4408b66337b5') -- 2023-05-29
     )
     as t (blockchain
         , project
